@@ -1,0 +1,75 @@
+.main {
+  margin-top: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px; 
+  overflow: hidden; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  background-color: darkred; 
+  color: white; 
+  padding: 0 1rem; 
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); 
+  grid-template-rows: repeat(6, 1fr); 
+  gap: 5px;
+  
+  margin-top: 0rem;
+  padding: 0.5rem; 
+}
+
+.day {
+  text-align: center;
+  font-size: 1rem;
+   margin: 0;
+   font-weight: bold;
+  
+}
+
+.dates {
+  background-color: white; 
+  border: 1px solid #e5e7eb; 
+  border-radius: 5px; 
+  padding: 0.25rem;
+  font-size: 0.75rem;
+  cursor: pointer; 
+  transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+.dates:hover {
+  background-color: #f3f4f6;
+  transform: scale(1.05);
+}
+
+.dates:focus {
+  outline: none; 
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.5); 
+}
+
+button {
+  background-color: white; 
+  border: 1px solid #e5e7eb; 
+  border-radius: 5px; 
+  padding: 0.5rem; 
+  cursor: pointer; 
+  margin-right: 2px;
+  transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+button:hover {
+  background-color: #f3f4f6; 
+  transform: scale(1.05); 
+}
+
+button:focus {
+  outline: none; 
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.5); 
+}
+
