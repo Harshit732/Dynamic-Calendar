@@ -1,6 +1,12 @@
 import React, { useContext, useState } from "react";
 import styles from "../styles/EventModal.module.css";
 import GlobalContext from "../context/GlobalContext";
+import { MdDeleteForever } from "react-icons/md";
+import { RxCross2 } from "react-icons/rx";
+import { MdOutlineSchedule } from "react-icons/md";
+import { MdOutlineSegment } from "react-icons/md";
+import { MdLabel } from "react-icons/md";
+import { IoIosCheckmark } from "react-icons/io";
 
 const labelsClass = ["indigo", "gray", "green", "blue", "red", "purple"];
 
@@ -48,10 +54,10 @@ function EventModal() {
                   dispatchCalEvent({type: "delete", payload: selectedEvent});
                   setShowEventModal(false);
                 }}
-               className={styles.icon}>del</span>)}
-            <button onClick={() => setShowEventModal(false)}>
-              <span className={styles.icon}>X</span>
-            </button>
+               className={styles.icon}><MdDeleteForever/></span>)}
+           
+              <span onClick={() => setShowEventModal(false)} className={styles.icon}><RxCross2 /></span>
+            
           </div>
         </header>
         <div className={styles.content}>
@@ -65,12 +71,15 @@ function EventModal() {
               required
               className={styles.input1}
             />
-            <span style={{ color: "gray", margin: "1rem" }}>
-              schedule {/* icon */}
+           <div style={{display:"flex", alignItems: "center", marginTop: "1rem"}}>
+           <span style={{ color: "gray", margin: "0 1rem", fontSize:"1.5rem"  }}>
+            <MdOutlineSchedule />
             </span>
-            <p>{daySelected.format("dddd, MMMM DD")}</p>
-            <span style={{ color: "gray", margin: "1rem" }}>
-              segmnet {/* icon */}
+            <p style={{fontSize:"1.5rem"}}>{daySelected.format("dddd, MMMM DD")}</p>
+           </div>
+           <div style={{display:"flex", alignItems: "center", marginTop: "1rem"}}>
+           <span style={{ color: "gray", margin: "0 1rem", fontSize:"1.5rem"  }}>
+            <MdOutlineSegment />
             </span>
             <input
               type="text"
@@ -81,8 +90,11 @@ function EventModal() {
               required
               className={styles.input2}
             />
-            <span style={{ color: "gray", margin: "1rem" }}>
-              lable {/* icon */}
+
+           </div>
+           <div style={{display:"flex", alignItems: "center", marginTop: "1rem"}}>
+           <span style={{ color: "gray", margin: "0 1rem", fontSize:"1.5rem" }}>
+            <MdLabel />
             </span>
             <div className={styles.label}>
               {labelsClass.map((lblClass, i) => (
@@ -93,18 +105,19 @@ function EventModal() {
                   onClick={() => setSelectedlabel(lblClass)}
                 >
                   {selectedlabel === lblClass && (
-                    <span style={{ color: "white", fontSize: "1rem" }}>
-                      ! {/* checkicon */}
+                    <span style={{ color: "white", fontSize: "2rem" , textAlign:"center", alignItems:"center", marginTop: "2px" }}>
+                      <IoIosCheckmark />
                     </span>
                   )}
                 </span>
               ))}
             </div>
+           </div>
           </div>
         </div>
         <footer className={styles.footer}>
           <button type="submit" onClick={handleSubmit}>
-            Submit
+            Save
           </button>
         </footer>
       </form>
